@@ -40,10 +40,10 @@ action :before_compile do
       "PATH" => [Gem.default_bindir, ENV['PATH']].join(':')
     }) { |k, v1, v2| v1 }  # user's environment settings will override
   end
-
-  new_resource.symlink_before_migrate.update({
-    "database.yml" => "config/database.yml"
-  })
+  #
+  # new_resource.symlink_before_migrate.update({
+  #   "database.yml" => "config/database.yml"
+  # })
 
 
   if new_resource.symlink_logs
