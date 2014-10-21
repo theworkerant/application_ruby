@@ -185,24 +185,24 @@ def install_gems
 end
 
 def create_database_yml
-  if new_resource.database.has_key?("host")
-    host = new_resource.database['host']
-  else
-    host = new_resource.find_database_server(new_resource.database_master_role)
-  end
-
-  template "#{new_resource.path}/shared/database.yml" do
-    source new_resource.database_template || "database.yml.erb"
-    cookbook new_resource.database_template ? new_resource.cookbook_name.to_s : "application_ruby"
-    owner new_resource.owner
-    group new_resource.group
-    mode "644"
-    variables(
-      :host => host,
-      :database => new_resource.database,
-      :rails_env => new_resource.environment_name
-    )
-  end
+  # if new_resource.database.has_key?("host")
+  #   host = new_resource.database['host']
+  # else
+  #   host = new_resource.find_database_server(new_resource.database_master_role)
+  # end
+  #
+  # template "#{new_resource.path}/shared/database.yml" do
+  #   source new_resource.database_template || "database.yml.erb"
+  #   cookbook new_resource.database_template ? new_resource.cookbook_name.to_s : "application_ruby"
+  #   owner new_resource.owner
+  #   group new_resource.group
+  #   mode "644"
+  #   variables(
+  #     :host => host,
+  #     :database => new_resource.database,
+  #     :rails_env => new_resource.environment_name
+  #   )
+  # end
 end
 
 def symlink_logs
