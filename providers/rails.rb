@@ -59,7 +59,7 @@ action :before_deploy do
 
   install_gems
 
-  create_database_yml
+  # create_database_yml
 
 end
 
